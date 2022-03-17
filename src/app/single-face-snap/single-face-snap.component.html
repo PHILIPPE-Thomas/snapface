@@ -1,0 +1,17 @@
+<div class="face-snap-card" [ngClass]="{snapped: textSnap ==='DisLike'}">
+  <h2>{{ faceSnap.title | uppercase }}</h2>
+  <a routerLink="/facesnaps">Back</a>
+  <p>{{46465435.35674 | number: '1.0-1'}} </p>
+  <p>{{0.33975 | percent: '1.2-2'}}</p>
+  <p>{{365.46 | currency:'EUR' : 'code'}}</p>
+  <img [src]= "faceSnap.imageUrl"  [alt]="faceSnap.title">
+  <p>Mis en ligne le : {{ faceSnap.createDate | date: 'dd MMMM yyyy'}}</p>
+  <p>{{ faceSnap.description | titlecase}}</p>
+  <p *ngIf="faceSnap.location === 'Paris'"> Photo prise à {{faceSnap.location}}</p>
+
+  <p>
+    <button (click)="onSnap()">{{textSnap}}</button>
+    <span [ngStyle]="{ color: 'rgb(0,' + faceSnap.snaps + ', 0)'}"> 👍 {{ faceSnap.snaps }}</span>
+  </p>
+</div>
+
